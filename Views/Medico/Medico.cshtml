@@ -1,8 +1,22 @@
-
+@model List<CitasApp.Models.Medico>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Medicos";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Medicos</h2>
+<table>
+    @foreach (Medico medico in Model)
+    {   
+        <ul>
+            <li>
+                <a asp-action="Detalle" asp-route-id="@medico.Id">
+                    @medico.Nombre
+                </a>
+            </li>
+        </ul>
+    }
+    <a asp-controller="Medico" asp-action="Nuevo" class="btn btn-primary">Agregar Nuevo</a>
+    
+</table>

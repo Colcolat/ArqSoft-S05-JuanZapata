@@ -1,0 +1,33 @@
+@model CitasApp.Models.Medico
+
+@{
+    ViewData["Title"] = "Detalle del Medico";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>  
+    <title>Detalles</title>
+</head>
+<body>
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">ID</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Nombre</dd>
+
+        <dt class="col-sm-3">Apellido</dt>
+        <dd class="col-sm-9">@Model.Especialidad</dd>
+        
+        <dt class="col-sm-3">No. Licencia</dt>
+        <dd class="col-sm-9">@Model.NumeroLicencia</dd>
+
+        
+    </dl>
+    <a asp-action="Medico" class="btn btn-secondary">Volver</a>
+</div>
+</body>
+</html>

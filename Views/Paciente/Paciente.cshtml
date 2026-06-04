@@ -7,19 +7,18 @@
 
 <h2>Pacientes</h2>
 <table class="listaPacientes">
-    <thead>
-    <tr>
-        <th>Nombres</th>
-    </tr>
-    </thead>
-    <tbody>
+    
     @foreach (var paciente in Model)
     {
-        <tr>
-            <td>@paciente.Nombre @paciente.Apellido</td>
-        </tr>
+        <ul>
+            <li>
+            <a asp-action="Detalle" asp-route-id="@paciente.Id">
+                @paciente.Nombre @paciente.Apellido
+            </a>
+            </li>
+        </ul>
     }
-    </tbody>
+   
 </table>
-<a asp-controller="Paciente" asp-action="Nuevo" class="btn-success">Agregar Nuevo</a>
+<a asp-controller="Paciente" asp-action="Nuevo" class="btn btn-primary">Agregar Nuevo</a>
 

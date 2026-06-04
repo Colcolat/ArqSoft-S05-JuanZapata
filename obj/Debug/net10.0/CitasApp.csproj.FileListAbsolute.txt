@@ -279,7 +279,8 @@
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/CitasApp.genruntimeconfig.cache
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/ref/CitasApp.dll
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/CitasApp.sourcelink.json
-/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/uesqawqrif-{0}-qhub4h8vkk-qhub4h8vkk.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/bin/Debug/net10.0/wwwroot/data/Pacientes.json
 /Users/Joss/RiderProjects/CitasApp/CitasApp/bin/Debug/net10.0/wwwroot/data/Pacientes.json.gz
-/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/fgxyf1uxgv-{0}-scxltgkifo-scxltgkifo.gz
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/uesqawqrif-{0}-k0xlgsg8h3-k0xlgsg8h3.gz
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/fgxyf1uxgv-{0}-fd7ph3ps93-fd7ph3ps93.gz
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/ka9id0197a-{0}-0d1jaxgqzt-0d1jaxgqzt.gz

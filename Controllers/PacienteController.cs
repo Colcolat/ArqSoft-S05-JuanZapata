@@ -32,7 +32,17 @@ public class PacienteController : Controller
 
     public IActionResult Detalle(int id)
     {
-        return View();
+        var ruta = Path.Combine(_env.WebRootPath, "data", "Pacientes.json");
+        var json = System.IO.File.ReadAllText(ruta);
+        var pacientes = JsonSerializer.Deserialize<List<Paciente>>(json,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+        var paciente = pacientes.FirstOrDefault(p => p.Id == id);
+
+        if (paciente == null)
+            return Content("Paciente no encontrado");
+
+        return View(paciente);
     }
 
     public IActionResult Nuevo()
@@ -56,4 +66,6 @@ public class PacienteController : Controller
         System.IO.File.WriteAllText(ruta, nuevoJson);
         return RedirectToAction("Paciente");
     }
+    
+    
 }   
