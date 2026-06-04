@@ -1,0 +1,37 @@
+@model CitasApp.Models.Paciente;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Agregar Nuevo Paciente</title>
+</head>
+<body>
+<div>
+    <form asp-action="Nuevo" method="post">
+        <div class="mb-3">
+            <label>Nombre</label>
+            <input asp-for="Nombre" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Apellido</label>
+            <input asp-for="Apellido" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Teléfono</label>
+            <input asp-for="Telefono" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Paciente" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>

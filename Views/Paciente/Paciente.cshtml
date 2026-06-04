@@ -1,6 +1,25 @@
+@model List<CitasApp.Models.Paciente>
+
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Citas App";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Pacientes</h2>
+<table class="listaPacientes">
+    <thead>
+    <tr>
+        <th>Nombres</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var paciente in Model)
+    {
+        <tr>
+            <td>@paciente.Nombre @paciente.Apellido</td>
+        </tr>
+    }
+    </tbody>
+</table>
+<a asp-controller="Paciente" asp-action="Nuevo" class="btn-success">Agregar Nuevo</a>
+
