@@ -73,6 +73,19 @@ public IActionResult Detalle(int id)
     return View(viewModel);
 }
 
+public IActionResult Nuevo()
+{
+    var rutaPacientes = Path.Combine(_env.WebRootPath, "data", "Pacientes.json");
+    var rutaMedicos   = Path.Combine(_env.WebRootPath, "data", "Medicos.json");
+
+    ViewBag.Pacientes = JsonSerializer.Deserialize<List<Paciente>>(System.IO.File.ReadAllText(rutaPacientes),
+        new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+    ViewBag.Medicos = JsonSerializer.Deserialize<List<Medico>>(System.IO.File.ReadAllText(rutaMedicos),
+        new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+    return View();
+}
+
 [HttpPost]
 public IActionResult Nuevo(Cita cita)
 {

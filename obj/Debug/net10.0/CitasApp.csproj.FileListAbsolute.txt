@@ -204,7 +204,6 @@
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/nezrqnk58p-{0}-muycvpuwrr-muycvpuwrr.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/v0zgfp0y55-{0}-87fc7y1x7t-87fc7y1x7t.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/yfc7ypekbg-{0}-mlv21k5csn-mlv21k5csn.gz
-/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/xh1fecoa3y-{0}-61n19gt1b8-61n19gt1b8.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/bujcvv2wj7-{0}-fr7q2aak1r-fr7q2aak1r.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/q5c6nj6b9e-{0}-bqjiyaj88i-bqjiyaj88i.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/bkvgg84fp7-{0}-c2jlpeoesf-c2jlpeoesf.gz
@@ -282,6 +281,7 @@
 /Users/Joss/RiderProjects/CitasApp/CitasApp/bin/Debug/net10.0/wwwroot/data/Pacientes.json
 /Users/Joss/RiderProjects/CitasApp/CitasApp/bin/Debug/net10.0/wwwroot/data/Pacientes.json.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/uesqawqrif-{0}-k0xlgsg8h3-k0xlgsg8h3.gz
-/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/fgxyf1uxgv-{0}-fd7ph3ps93-fd7ph3ps93.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/5mi2r1et4g-{0}-96af2b10uo-96af2b10uo.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/ka9id0197a-{0}-kfoqldb633-kfoqldb633.gz
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/fgxyf1uxgv-{0}-og3mgyvyrn-og3mgyvyrn.gz
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/xh1fecoa3y-{0}-s6pw3wn50c-s6pw3wn50c.gz
