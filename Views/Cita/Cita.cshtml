@@ -1,8 +1,47 @@
-
+@model List<CitasApp.Models.CitaViewModel>
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+    ViewData["Title"] = "Citas";
 }
 
-<h2>title</h2>
+<h2>Citas</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Paciente</th>
+        <th>Médico</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Estado</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var cita in Model)
+    {
+        <tr>
+            <td>@cita.NombrePaciente</td>
+            <td>@cita.NombreMedico</td>
+            <td>@cita.Fecha</td>
+            <td>@cita.FechaHora</td>
+            <td>
+                @if (cita.Estado == "Confirmada")
+                {
+                    <span class="badge bg-success">Confirmada</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning text-dark">Pendiente</span>
+                }
+            </td>
+            <td>
+                <a asp-action="Detalle" asp-route-id="@cita.Id" class="btn btn-info btn-sm">Ver</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a asp-action="Nuevo" class="btn btn-primary">Agregar Nuevo</a>
+

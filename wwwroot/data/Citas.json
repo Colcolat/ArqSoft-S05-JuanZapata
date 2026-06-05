@@ -1,0 +1,5 @@
+[
+  { "id": 1, "pacienteId": 1, "medicoId": 1, "fecha": "2026-06-01", "fechaHora": "09:00", "motivo": "Consulta general", "estado": "Confirmada" },
+  { "id": 2, "pacienteId": 2, "medicoId": 2, "fecha": "2026-06-01", "fechaHora": "10:00", "motivo": "Revisión de resultados", "estado": "Pendiente" },
+  { "id": 3, "pacienteId": 3, "medicoId": 1, "fecha": "2026-06-03", "fechaHora": "11:00", "motivo": "Primera consulta", "estado": "Pendiente" }
+]
