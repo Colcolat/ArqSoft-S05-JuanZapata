@@ -1,33 +1,41 @@
 @model CitasApp.Models.Medico
 
 @{
-    ViewData["Title"] = "Detalle del Medico";
+    ViewData["Title"] = "Detalle del Médico";
+    Layout = "_Layout";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>  
-    <title>Detalles</title>
-</head>
-<body>
-<div>
-    <dl class="row">
-        <dt class="col-sm-3">ID</dt>
-        <dd class="col-sm-9">@Model.Id</dd>
-
-        <dt class="col-sm-3">Nombre</dt>
-        <dd class="col-sm-9">@Model.Nombre</dd>
-
-        <dt class="col-sm-3">Apellido</dt>
-        <dd class="col-sm-9">@Model.Especialidad</dd>
-        
-        <dt class="col-sm-3">No. Licencia</dt>
-        <dd class="col-sm-9">@Model.NumeroLicencia</dd>
-
-        
-    </dl>
-    <a asp-action="Medico" class="btn btn-secondary">Volver</a>
+<div class="page-header page-header--teal">
+    <div class="page-header-inner">
+        <div>
+            <h2>Detalle del Médico</h2>
+            <p class="page-header-sub">Información completa del médico</p>
+        </div>
+        <a asp-action="Medico" class="btn btn-light-outline">Volver</a>
+    </div>
 </div>
-</body>
-</html>
+
+<div class="detail-card">
+    <div class="detail-avatar-header detail-avatar-header--teal">
+        <div class="avatar avatar-lg avatar--teal">@Model.Nombre[0]</div>
+        <div>
+            <h3 class="detail-name">@Model.Nombre</h3>
+            <span class="badge bg-info">@Model.Especialidad</span>
+        </div>
+    </div>
+
+    <div class="detail-body">
+        <div class="detail-row">
+            <dt>Nombre</dt>
+            <dd>@Model.Nombre</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Especialidad</dt>
+            <dd>@Model.Especialidad</dd>
+        </div>
+        <div class="detail-row">
+            <dt>No. Licencia</dt>
+            <dd>@Model.NumeroLicencia</dd>
+        </div>
+    </div>
+</div>

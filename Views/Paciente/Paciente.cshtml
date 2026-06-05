@@ -1,24 +1,36 @@
 @model List<CitasApp.Models.Paciente>
 
 @{
-    ViewBag.Title = "Citas App";
+    ViewData["Title"] = "Pacientes";
     Layout = "_Layout";
 }
 
-<h2>Pacientes</h2>
-<table class="listaPacientes">
-    
+<div class="page-header">
+    <div class="page-header-inner">
+        <div>
+            <h2>Pacientes</h2>
+            <p class="page-header-sub">@Model.Count paciente(s) registrado(s)</p>
+        </div>
+        <a asp-controller="Paciente" asp-action="Nuevo" class="btn btn-light-outline">+ Agregar Nuevo</a>
+    </div>
+</div>
+
+<div class="cards-grid">
     @foreach (var paciente in Model)
     {
-        <ul>
-            <li>
-            <a asp-action="Detalle" asp-route-id="@paciente.Id">
-                @paciente.Nombre @paciente.Apellido
-            </a>
-            </li>
-        </ul>
+        <div class="entity-card">
+            <div class="entity-info">
+                <div class="avatar">@paciente.Nombre[0]@paciente.Apellido[0]</div>
+                <div>
+                    <p class="entity-name">@paciente.Nombre @paciente.Apellido</p>
+                    <p class="entity-sub">Paciente #@paciente.Id</p>
+                </div>
+            </div>
+            <div class="entity-meta">
+                <span><span class="meta-label">Tel</span> @paciente.Telefono</span>
+                <span><span class="meta-label">Email</span> @paciente.Email</span>
+            </div>
+            <a asp-action="Detalle" asp-route-id="@paciente.Id" class="btn btn-primary btn-sm btn-full">Ver detalle</a>
+        </div>
     }
-   
-</table>
-<a asp-controller="Paciente" asp-action="Nuevo" class="btn btn-primary">Agregar Nuevo</a>
-
+</div>

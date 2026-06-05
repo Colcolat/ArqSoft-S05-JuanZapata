@@ -2,46 +2,59 @@
 
 @{
     ViewData["Title"] = "Citas";
+    Layout = "_Layout";
 }
 
-<h2>Citas</h2>
+<div class="page-header page-header--purple">
+    <div class="page-header-inner">
+        <div>
+            <h2>Citas</h2>
+            <p class="page-header-sub">@Model.Count cita(s) registrada(s)</p>
+        </div>
+        <a asp-action="Nuevo" class="btn btn-light-outline">+ Agregar Nueva</a>
+    </div>
+</div>
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Paciente</th>
-        <th>Médico</th>
-        <th>Fecha</th>
-        <th>Hora</th>
-        <th>Estado</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var cita in Model)
-    {
-        <tr>
-            <td>@cita.NombrePaciente</td>
-            <td>@cita.NombreMedico</td>
-            <td>@cita.Fecha</td>
-            <td>@cita.FechaHora</td>
-            <td>
-                @if (cita.Estado == "Confirmada")
-                {
-                    <span class="badge bg-success">Confirmada</span>
-                }
-                else
-                {
-                    <span class="badge bg-warning text-dark">Pendiente</span>
-                }
-            </td>
-            <td>
-                <a asp-action="Detalle" asp-route-id="@cita.Id" class="btn btn-info btn-sm">Ver</a>
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
-
-<a asp-action="Nuevo" class="btn btn-primary">Agregar Nuevo</a>
-
+<div class="table-wrapper">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Paciente</th>
+                <th>Médico</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Estado</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cita in Model)
+            {
+                <tr>
+                    <td data-label="Paciente">
+                        <div class="table-name-cell">
+                            <div class="avatar avatar-sm">@cita.NombrePaciente[0]</div>
+                            <span>@cita.NombrePaciente</span>
+                        </div>
+                    </td>
+                    <td data-label="Médico">@cita.NombreMedico</td>
+                    <td data-label="Fecha">@cita.Fecha</td>
+                    <td data-label="Hora">@cita.FechaHora</td>
+                    <td data-label="Estado">
+                        @if (cita.Estado == "Confirmada")
+                        {
+                            <span class="badge bg-success">Confirmada</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning">Pendiente</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Detalle" asp-route-id="@cita.Id" class="btn btn-info btn-sm">Ver</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,37 +1,41 @@
-@model CitasApp.Models.Paciente;
+@model CitasApp.Models.Paciente
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Nuevo Paciente";
+    Layout = "_Layout";
 }
 
-<!DOCTYPE html>
+<div class="page-header">
+    <div class="page-header-inner">
+        <div>
+            <h2>Nuevo Paciente</h2>
+            <p class="page-header-sub">Completa los datos para registrar un paciente</p>
+        </div>
+        <a asp-action="Paciente" class="btn btn-light-outline">Cancelar</a>
+    </div>
+</div>
 
-<html>
-<head>
-    <title>Agregar Nuevo Paciente</title>
-</head>
-<body>
-<div>
+<div class="form-card">
     <form asp-action="Nuevo" method="post">
         <div class="mb-3">
-            <label>Nombre</label>
-            <input asp-for="Nombre" class="form-control" />
+            <label class="form-label">Nombre</label>
+            <input asp-for="Nombre" class="form-control" placeholder="Ej. Ana" />
         </div>
         <div class="mb-3">
-            <label>Apellido</label>
-            <input asp-for="Apellido" class="form-control" />
+            <label class="form-label">Apellido</label>
+            <input asp-for="Apellido" class="form-control" placeholder="Ej. García" />
         </div>
         <div class="mb-3">
-            <label>Teléfono</label>
-            <input asp-for="Telefono" class="form-control" />
+            <label class="form-label">Teléfono</label>
+            <input asp-for="Telefono" class="form-control" placeholder="Ej. 555-0001" />
         </div>
         <div class="mb-3">
-            <label>Email</label>
-            <input asp-for="Email" class="form-control" />
+            <label class="form-label">Email</label>
+            <input asp-for="Email" class="form-control" placeholder="Ej. ana@mail.com" />
         </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        <a asp-action="Paciente" class="btn btn-secondary">Cancelar</a>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Paciente" class="btn btn-secondary">Cancelar</a>
+        </div>
     </form>
 </div>
-</body>
-</html>

@@ -2,28 +2,59 @@
 
 @{
     ViewData["Title"] = "Detalle de Cita";
+    Layout = "_Layout";
 }
 
-<h2>Detalle de Cita</h2>
+<div class="page-header page-header--purple">
+    <div class="page-header-inner">
+        <div>
+            <h2>Detalle de Cita</h2>
+            <p class="page-header-sub">Información completa de la cita</p>
+        </div>
+        <a asp-action="Cita" class="btn btn-light-outline">Volver</a>
+    </div>
+</div>
 
-<dl class="row">
-    <dt class="col-sm-3">Paciente</dt>
-    <dd class="col-sm-9">@Model.NombrePaciente</dd>
+<div class="detail-card">
+    <div class="detail-avatar-header detail-avatar-header--purple">
+        <div class="avatar avatar-lg avatar--purple">@Model.NombrePaciente[0]</div>
+        <div>
+            <h3 class="detail-name">@Model.NombrePaciente</h3>
+            @if (Model.Estado == "Confirmada")
+            {
+                <span class="badge bg-success">Confirmada</span>
+            }
+            else
+            {
+                <span class="badge bg-warning">Pendiente</span>
+            }
+        </div>
+    </div>
 
-    <dt class="col-sm-3">Médico</dt>
-    <dd class="col-sm-9">@Model.NombreMedico</dd>
-
-    <dt class="col-sm-3">Fecha</dt>
-    <dd class="col-sm-9">@Model.Fecha</dd>
-
-    <dt class="col-sm-3">Hora</dt>
-    <dd class="col-sm-9">@Model.FechaHora</dd>
-
-    <dt class="col-sm-3">Motivo</dt>
-    <dd class="col-sm-9">@Model.Motivo</dd>
-
-    <dt class="col-sm-3">Estado</dt>
-    <dd class="col-sm-9">@Model.Estado</dd>
-</dl>
-
-<a asp-action="Cita" class="btn btn-secondary">Volver</a>
+    <div class="detail-body">
+        <div class="detail-row">
+            <dt>Paciente</dt>
+            <dd>@Model.NombrePaciente</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Médico</dt>
+            <dd>@Model.NombreMedico</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Fecha</dt>
+            <dd>@Model.Fecha</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Hora</dt>
+            <dd>@Model.FechaHora</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Motivo</dt>
+            <dd>@Model.Motivo</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Estado</dt>
+            <dd>@Model.Estado</dd>
+        </div>
+    </div>
+</div>
