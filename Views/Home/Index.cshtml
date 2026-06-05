@@ -1,8 +1,64 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="home-hero">
+    <div class="home-hero-text">
+        <h1 class="home-title">Bienvenido a <span class="home-title-accent">CitasApp</span></h1>
+        <p class="home-subtitle">
+            Tu salud es nuestra prioridad. Gestiona tus citas médicas, consulta a nuestros especialistas y mantén un seguimiento de tu bienestar desde un solo lugar.
+        </p>
+        <div class="home-actions">
+            <a asp-controller="Cita" asp-action="Cita" class="btn btn-primary">Agendar Cita</a>
+            <a asp-controller="Medico" asp-action="Medico" class="btn btn-light-outline">Ver Especialistas</a>
+        </div>
+    </div>
+</div>
+
+<div class="home-cards">
+    <div class="home-card">
+        <div class="home-card-icon home-card-icon--blue">+</div>
+        <div>
+            <h3 class="home-card-title">Chequeos Regulares</h3>
+            <p class="home-card-desc">Se recomienda una consulta médica general al menos una vez al año para prevenir enfermedades.</p>
+        </div>
+    </div>
+
+    <div class="home-card">
+        <div class="home-card-icon home-card-icon--teal">♥</div>
+        <div>
+            <h3 class="home-card-title">Salud Cardiovascular</h3>
+            <p class="home-card-desc">Mantén una presión arterial saludable con ejercicio regular y una dieta balanceada.</p>
+        </div>
+    </div>
+
+    <div class="home-card">
+        <div class="home-card-icon home-card-icon--purple">★</div>
+        <div>
+            <h3 class="home-card-title">Especialistas Disponibles</h3>
+            <p class="home-card-desc">Contamos con médicos en Medicina General, Pediatría y Cardiología listos para atenderte.</p>
+        </div>
+    </div>
+</div>
+
+<div class="home-tips">
+    <h2 class="home-tips-title">Consejos de Salud</h2>
+    <div class="tips-grid">
+        <div class="tip-card">
+            <div class="tip-number">01</div>
+            <p>Bebe al menos <strong>8 vasos de agua</strong> al día para mantener tu cuerpo hidratado.</p>
+        </div>
+        <div class="tip-card">
+            <div class="tip-number">02</div>
+            <p>Realiza <strong>30 minutos de actividad física</strong> diaria para mejorar tu salud cardiovascular.</p>
+        </div>
+        <div class="tip-card">
+            <div class="tip-number">03</div>
+            <p>Duerme entre <strong>7 y 9 horas</strong> cada noche para que tu cuerpo se recupere correctamente.</p>
+        </div>
+        <div class="tip-card">
+            <div class="tip-number">04</div>
+            <p>No ignores los síntomas. <strong>Consulta a tu médico</strong> ante cualquier malestar persistente.</p>
+        </div>
+    </div>
 </div>

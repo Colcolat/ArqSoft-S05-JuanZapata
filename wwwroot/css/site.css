@@ -576,6 +576,165 @@ dl.row dd:last-child { border-bottom: none; }
 .footer a { color: var(--gray-400); text-decoration: none; }
 .footer a:hover { color: var(--primary); }
 
+/* ── Home ── */
+.home-hero {
+    background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%);
+    border-radius: var(--radius-lg);
+    padding: 3rem 3rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    box-shadow: var(--shadow-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.home-hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(255,255,255,.05);
+    border-radius: 50%;
+}
+
+.home-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: 120px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,.04);
+    border-radius: 50%;
+}
+
+.home-hero-text { position: relative; z-index: 1; max-width: 640px; }
+
+.home-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 1rem;
+    letter-spacing: -.5px;
+    line-height: 1.2;
+}
+
+.home-title-accent {
+    background: linear-gradient(135deg, #93c5fd, #e0f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.home-subtitle {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,.75);
+    margin: 0 0 2rem;
+    line-height: 1.7;
+}
+
+.home-actions { display: flex; gap: .85rem; flex-wrap: wrap; }
+
+.home-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.home-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: var(--transition);
+    text-decoration: none;
+    color: var(--gray-800);
+}
+
+.home-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+    color: var(--gray-800);
+    border-color: rgba(37,99,235,.25);
+}
+
+.home-card-icon {
+    width: 56px; height: 56px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.home-card-icon--blue   { background: var(--primary-grad); box-shadow: 0 4px 12px rgba(37,99,235,.3); }
+.home-card-icon--teal   { background: var(--teal-grad);    box-shadow: 0 4px 12px rgba(13,148,136,.3); }
+.home-card-icon--purple { background: var(--purple-grad);  box-shadow: 0 4px 12px rgba(124,58,237,.3); }
+
+.home-card-title { font-size: 1.05rem; font-weight: 700; margin: 0 0 .25rem; }
+.home-card-desc  { font-size: .85rem; color: var(--gray-400); margin: 0; }
+
+/* ── Home tips ── */
+.home-tips { margin-top: 2.5rem; }
+
+.home-tips-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 1.25rem;
+}
+
+.home-tips-title::before {
+    background: var(--primary-grad);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.tip-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    transition: var(--transition);
+}
+
+.tip-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.tip-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--primary-grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.tip-card p {
+    font-size: .9rem;
+    color: var(--gray-600);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.tip-card p strong { color: var(--gray-800); }
+
 /* ── Links ── */
 a { color: var(--primary); text-decoration: none; transition: var(--transition); }
 a:hover { color: var(--primary-dk); }

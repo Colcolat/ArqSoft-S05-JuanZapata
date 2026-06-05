@@ -1,5 +1,38 @@
 [
-  { "id": 1, "pacienteId": 1, "medicoId": 1, "fecha": "2026-06-01", "fechaHora": "09:00", "motivo": "Consulta general", "estado": "Confirmada" },
-  { "id": 2, "pacienteId": 2, "medicoId": 2, "fecha": "2026-06-01", "fechaHora": "10:00", "motivo": "Revisión de resultados", "estado": "Pendiente" },
-  { "id": 3, "pacienteId": 3, "medicoId": 1, "fecha": "2026-06-03", "fechaHora": "11:00", "motivo": "Primera consulta", "estado": "Pendiente" }
+  {
+    "Id": 1,
+    "PacienteId": 1,
+    "MedicoId": 1,
+    "Fecha": "2026-06-01",
+    "FechaHora": "09:00",
+    "Motivo": "Consulta general",
+    "Estado": "Confirmada"
+  },
+  {
+    "Id": 2,
+    "PacienteId": 2,
+    "MedicoId": 2,
+    "Fecha": "2026-06-01",
+    "FechaHora": "10:00",
+    "Motivo": "Revisi\u00F3n de resultados",
+    "Estado": "Pendiente"
+  },
+  {
+    "Id": 3,
+    "PacienteId": 3,
+    "MedicoId": 1,
+    "Fecha": "2026-06-03",
+    "FechaHora": "11:00",
+    "Motivo": "Primera consulta",
+    "Estado": "Pendiente"
+  },
+  {
+    "Id": 4,
+    "PacienteId": 3,
+    "MedicoId": 4,
+    "Fecha": "2026-06-17",
+    "FechaHora": "00:30",
+    "Motivo": "Dolor en el coraz\u00F3n por desamor",
+    "Estado": "Confirmada"
+  }
 ]
