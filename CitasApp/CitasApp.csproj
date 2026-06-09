@@ -6,4 +6,40 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Web\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Cita\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Cita\PorPaciente.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Medico\Detalle.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Medico\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Paciente\Detalle.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Paciente\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Web\Views\Cita\Index.cshtml" />
+      <AdditionalFiles Include="Web\Views\Cita\PorPaciente.cshtml" />
+      <AdditionalFiles Include="Web\Views\Home\Index.cshtml" />
+      <AdditionalFiles Include="Web\Views\Home\Privacy.cshtml" />
+      <AdditionalFiles Include="Web\Views\Medico\Detalle.cshtml" />
+      <AdditionalFiles Include="Web\Views\Medico\Index.cshtml" />
+      <AdditionalFiles Include="Web\Views\Paciente\Detalle.cshtml" />
+      <AdditionalFiles Include="Web\Views\Paciente\Index.cshtml" />
+      <AdditionalFiles Include="Web\Views\Shared\Error.cshtml" />
+      <AdditionalFiles Include="Web\Views\Shared\_Layout.cshtml" />
+      <AdditionalFiles Include="Web\Views\Shared\_ValidationScriptsPartial.cshtml" />
+      <AdditionalFiles Include="Web\Views\_ViewImports.cshtml" />
+      <AdditionalFiles Include="Web\Views\_ViewStart.cshtml" />
+    </ItemGroup>
+
 </Project>

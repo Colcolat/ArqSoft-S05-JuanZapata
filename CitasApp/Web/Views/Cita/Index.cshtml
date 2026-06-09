@@ -23,8 +23,8 @@
         var medico = ((IEnumerable<Medico>)ViewBag.Medicos).FirstOrDefault(m => m.Id == cita.MedicoId);
 
         <tr>
-            <td>@cita.Fecha.ToString("dd/MM/yyyy") @cita.Hora.ToString("HH:mm")</td>
-            <td>@(paciente != null ? $"{paciente.Nombre} {paciente.Apellido}" : "Desconocido")</td>
+            <td>@cita.Fecha.ToString("dd/MM/yyyy")</td>
+            <td>@cita.Hora.ToString("HH:mm")</td> <td>@(paciente != null ? $"{paciente.Nombre} {paciente.Apellido}" : "Desconocido")</td>
             <td>@(medico != null ? $"Dr. {medico.Nombre} {medico.Apellido}" : "Desconocido")</td>
             <td>@cita.Motivo</td>
             <td>@cita.Estado</td>
