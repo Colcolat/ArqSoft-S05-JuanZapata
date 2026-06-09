@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Razor;
 using CitasApp.Data;
 using CitasApp.Application.Interfaces;
 using CitasApp.Application.Services;
@@ -17,6 +18,12 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.Configure<RazorViewEngineOptions>(options =>
+{
+    options.ViewLocationFormats.Clear();
+    options.ViewLocationFormats.Add("/Web/Views/{1}/{0}.cshtml");
+    options.ViewLocationFormats.Add("/Web/Views/Shared/{0}.cshtml");
+});
 
 // Adapters de salida (Infrastructure)
 builder.Services.AddScoped<ICitaRepository, JsonCitaRepository>();
