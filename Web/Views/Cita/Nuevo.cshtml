@@ -1,0 +1,74 @@
+@model CitasApp.Domain.Models.Cita
+
+@{
+    ViewData["Title"] = "Nueva Cita";
+    Layout = "_Layout";
+    var pacientes = ViewBag.Pacientes as List<CitasApp.Domain.Models.Paciente>;
+    var medicos   = ViewBag.Medicos   as List<CitasApp.Domain.Models.Medico>;
+}
+
+<div class="page-header page-header--purple">
+    <div class="page-header-inner">
+        <div>
+            <h2>Nueva Cita</h2>
+            <p class="page-header-sub">Completa los datos para registrar una cita</p>
+        </div>
+        <a asp-action="Cita" class="btn btn-light-outline">Cancelar</a>
+    </div>
+</div>
+
+<div class="form-card">
+    <form asp-action="Nuevo" method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Paciente</label>
+            <select asp-for="PacienteId" class="form-select">
+                <option value="">-- Selecciona un paciente --</option>
+                @foreach (var p in pacientes)
+                {
+                    <option value="@p.Id">@p.Nombre @p.Apellido</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Médico</label>
+            <select asp-for="MedicoId" class="form-select">
+                <option value="">-- Selecciona un médico --</option>
+                @foreach (var m in medicos)
+                {
+                    <option value="@m.Id">@m.Nombre — @m.Especialidad</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fecha</label>
+            <input asp-for="Fecha" type="date" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Hora</label>
+            <input asp-for="FechaHora" type="time" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Motivo</label>
+            <input asp-for="Motivo" class="form-control" placeholder="Ej. Consulta general" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <select asp-for="Estado" class="form-select">
+                <option value="Pendiente">Pendiente</option>
+                <option value="Confirmada">Confirmada</option>
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Cita" class="btn btn-secondary">Cancelar</a>
+        </div>
+
+    </form>
+</div>

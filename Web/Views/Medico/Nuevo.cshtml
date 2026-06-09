@@ -1,0 +1,37 @@
+@model CitasApp.Domain.Models.Medico
+
+@{
+    ViewData["Title"] = "Nuevo Médico";
+    Layout = "_Layout";
+}
+
+<div class="page-header page-header--teal">
+    <div class="page-header-inner">
+        <div>
+            <h2>Nuevo Médico</h2>
+            <p class="page-header-sub">Completa los datos para registrar un médico</p>
+        </div>
+        <a asp-action="Medico" class="btn btn-light-outline">Cancelar</a>
+    </div>
+</div>
+
+<div class="form-card">
+    <form asp-action="Nuevo" method="post">
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input asp-for="Nombre" class="form-control" placeholder="Ej. Dr. Carlos Reyes" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Especialidad</label>
+            <input asp-for="Especialidad" class="form-control" placeholder="Ej. Cardiología" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Número de Licencia</label>
+            <input asp-for="NumeroLicencia" class="form-control" placeholder="Ej. CA-30117" />
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Medico" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>

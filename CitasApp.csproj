@@ -26,4 +26,45 @@
       </Content>
     </ItemGroup>
 
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Cita\Cita.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Cita\Detalle.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Cita\Nuevo.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Medico\Detalle.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Medico\Medico.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Medico\Nuevo.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Paciente\Detalle.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Paciente\Nuevo.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Paciente\Paciente.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_LoginPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Web\Views\Cita\Cita.cshtml" />
+      <AdditionalFiles Include="Web\Views\Cita\Detalle.cshtml" />
+      <AdditionalFiles Include="Web\Views\Cita\Nuevo.cshtml" />
+      <AdditionalFiles Include="Web\Views\Home\Index.cshtml" />
+      <AdditionalFiles Include="Web\Views\Home\Privacy.cshtml" />
+      <AdditionalFiles Include="Web\Views\Medico\Detalle.cshtml" />
+      <AdditionalFiles Include="Web\Views\Medico\Medico.cshtml" />
+      <AdditionalFiles Include="Web\Views\Medico\Nuevo.cshtml" />
+      <AdditionalFiles Include="Web\Views\Paciente\Detalle.cshtml" />
+      <AdditionalFiles Include="Web\Views\Paciente\Nuevo.cshtml" />
+      <AdditionalFiles Include="Web\Views\Paciente\Paciente.cshtml" />
+      <AdditionalFiles Include="Web\Views\Shared\Error.cshtml" />
+      <AdditionalFiles Include="Web\Views\Shared\_Layout.cshtml" />
+      <AdditionalFiles Include="Web\Views\Shared\_LoginPartial.cshtml" />
+      <AdditionalFiles Include="Web\Views\Shared\_ValidationScriptsPartial.cshtml" />
+      <AdditionalFiles Include="Web\Views\_ViewImports.cshtml" />
+      <AdditionalFiles Include="Web\Views\_ViewStart.cshtml" />
+    </ItemGroup>
+
 </Project>

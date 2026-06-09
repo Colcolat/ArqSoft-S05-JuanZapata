@@ -1,0 +1,60 @@
+@model CitasApp.Application.DTOs.CitaViewModel
+
+@{
+    ViewData["Title"] = "Detalle de Cita";
+    Layout = "_Layout";
+}
+
+<div class="page-header page-header--purple">
+    <div class="page-header-inner">
+        <div>
+            <h2>Detalle de Cita</h2>
+            <p class="page-header-sub">Información completa de la cita</p>
+        </div>
+        <a asp-action="Cita" class="btn btn-light-outline">Volver</a>
+    </div>
+</div>
+
+<div class="detail-card">
+    <div class="detail-avatar-header detail-avatar-header--purple">
+        <div class="avatar avatar-lg avatar--purple">@Model.NombrePaciente[0]</div>
+        <div>
+            <h3 class="detail-name">@Model.NombrePaciente</h3>
+            @if (Model.Estado == "Confirmada")
+            {
+                <span class="badge bg-success">Confirmada</span>
+            }
+            else
+            {
+                <span class="badge bg-warning">Pendiente</span>
+            }
+        </div>
+    </div>
+
+    <div class="detail-body">
+        <div class="detail-row">
+            <dt>Paciente</dt>
+            <dd>@Model.NombrePaciente</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Médico</dt>
+            <dd>@Model.NombreMedico</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Fecha</dt>
+            <dd>@Model.Fecha</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Hora</dt>
+            <dd>@Model.FechaHora</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Motivo</dt>
+            <dd>@Model.Motivo</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Estado</dt>
+            <dd>@Model.Estado</dd>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+@model CitasApp.Domain.Models.Paciente
+
+@{
+    ViewData["Title"] = "Detalle del Paciente";
+    Layout = "_Layout";
+}
+
+<div class="page-header">
+    <div class="page-header-inner">
+        <div>
+            <h2>Detalle del Paciente</h2>
+            <p class="page-header-sub">Información completa del paciente</p>
+        </div>
+        <a asp-action="Paciente" class="btn btn-light-outline">Volver</a>
+    </div>
+</div>
+
+<div class="detail-card">
+    <div class="detail-avatar-header">
+        <div class="avatar avatar-lg">@Model.Nombre[0]@Model.Apellido[0]</div>
+        <div>
+            <h3 class="detail-name">@Model.Nombre @Model.Apellido</h3>
+            <span class="badge bg-info">Paciente #@Model.Id</span>
+        </div>
+    </div>
+
+    <div class="detail-body">
+        <div class="detail-row">
+            <dt>Nombre</dt>
+            <dd>@Model.Nombre</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Apellido</dt>
+            <dd>@Model.Apellido</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Teléfono</dt>
+            <dd>@Model.Telefono</dd>
+        </div>
+        <div class="detail-row">
+            <dt>Email</dt>
+            <dd>@Model.Email</dd>
+        </div>
+    </div>
+</div>
