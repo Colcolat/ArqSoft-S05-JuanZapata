@@ -139,7 +139,6 @@
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/rjimswa.dswa.cache.json
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
-/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/scopedcss/bundle/CitasApp.styles.css
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/scopedcss/projectbundle/CitasApp.bundle.scp.css
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/ofa40bqe71-{0}-b9sayid5wm-b9sayid5wm.gz
@@ -264,8 +263,6 @@
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/ut6ukyg7et-{0}-muycvpuwrr-muycvpuwrr.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/0rhrjh8r5e-{0}-87fc7y1x7t-87fc7y1x7t.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/3dqf94n67b-{0}-jfsiqqwiad-jfsiqqwiad.gz
-/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/yg95l8t0tl-{0}-r84gdumne0-r84gdumne0.gz
-/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/pu679a8p1l-{0}-r84gdumne0-r84gdumne0.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/staticwebassets.build.json
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/staticwebassets.build.json.cache
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/staticwebassets.development.json
@@ -285,3 +282,6 @@
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/xh1fecoa3y-{0}-s6pw3wn50c-s6pw3wn50c.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/5mi2r1et4g-{0}-0g7l4oypsi-0g7l4oypsi.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/fgxyf1uxgv-{0}-jdx5rvsyxs-jdx5rvsyxs.gz
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/scopedcss/Web/Views/Shared/_Layout.cshtml.rz.scp.css
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/yg95l8t0tl-{0}-3idra5dl26-3idra5dl26.gz
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/pu679a8p1l-{0}-3idra5dl26-3idra5dl26.gz
