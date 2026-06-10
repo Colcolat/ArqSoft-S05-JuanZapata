@@ -1,7 +1,7 @@
 using System.Text.Json;
 using CitasApp.Models;
 
-namespace CitasApp.Data
+namespace Infrastructure.Data
 {
     public static class JsonDb
     {
