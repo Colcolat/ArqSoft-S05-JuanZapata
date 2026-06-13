@@ -1,4 +1,4 @@
-# CitasApp
+# CitasApp - Arquitectura Hexagonal
 
 **Alumno:** Josue Enmanuel Poot Mateo  
 **Grupo:** 3B  
@@ -9,7 +9,7 @@
 
 ## Descripción
 
-CitasApp es un sistema web de gestión de citas médicas desarrollado con ASP.NET Core MVC. Permite administrar pacientes, médicos y citas de forma sencilla. Esta versión del proyecto ha sido refactorizada hacia una **Arquitectura Hexagonal (Puertos y Adaptadores)**, lo que permite una clara separación de responsabilidades aislando la lógica de negocio (dominio) de los detalles técnicos como la interfaz de usuario y la persistencia de datos.
+CitasApp es un sistema web de gestión de citas médicas desarrollado en C# bajo el paradigma de la **Arquitectura Hexagonal** (también conocida como patrón de Puertos y Adaptadores). Esta estructura permite administrar pacientes, médicos y citas asegurando que la lógica principal del negocio (el dominio) esté completamente aislada de los detalles de implementación tecnológica, como la interfaz de usuario (MVC) o la capa de persistencia de datos (archivos JSON).
 
 ---
 
@@ -22,82 +22,99 @@ CitasApp es un sistema web de gestión de citas médicas desarrollado con ASP.NE
 <img width="1440" height="803" alt="image" src="https://github.com/user-attachments/assets/f48cb352-96ff-4469-b2a0-8c70359c43fe" />
 
 ### Pacientes
-- Listar todos los pacientes registrados en tarjetas visuales.
-- Ver el detalle individual de cada paciente.
-- Registrar nuevos pacientes.
+* Listar todos los pacientes registrados en tarjetas visuales.
+* Ver el detalle individual de cada paciente.
+* Registrar nuevos pacientes.
 
 ### Médicos
-- Listar médicos con su especialidad.
-- Ver el detalle de cada médico.
-- Registrar nuevos médicos.
+* Listar médicos con su especialidad.
+* Ver el detalle de cada médico.
+* Registrar nuevos médicos.
 
 ### Citas
-- Listar citas mostrando el nombre del paciente, médico asignado, fecha, hora y estado.
-- Ver el detalle completo de cada cita.
-- Registrar nuevas citas seleccionando paciente, médico, fecha, hora, motivo y estado.
+* Listar citas mostrando el nombre del paciente, médico asignado, fecha, hora y estado.
+* Ver el detalle completo de cada cita.
+* Registrar nuevas citas seleccionando paciente, médico, fecha, hora, motivo y estado.
 
 ---
 
-## ¿Cómo funciona? (Arquitectura Hexagonal)
+## ¿Cómo funciona?
 
-El sistema evoluciona del tradicional patrón MVC para implementar el patrón de **Puertos y Adaptadores**, dividiéndose en las siguientes capas lógicas:
+El sistema abandona el acoplamiento tradicional para seguir el patrón de **Arquitectura Hexagonal**, dividiéndose en capas que se comunican de adentro hacia afuera mediante contratos (interfaces):
 
-1. **Dominio (Core):** Contiene las entidades principales (`Paciente`, `Medico`, `Cita`) y las reglas de negocio puras. No tiene dependencias externas.
-2. **Aplicación (Puertos):** Define los casos de uso (servicios) y las interfaces de los repositorios. Dicta *qué* debe hacer el sistema sin importar *cómo* se implemente.
-3. **Infraestructura (Adaptadores de Salida):** Implementa las interfaces de la capa de aplicación. Aquí se encuentra el acceso a datos (mediante lectura de archivos JSON o bases de datos con Entity Framework Core/SQLite).
-4. **Presentación (Adaptadores de Entrada):** La capa web en ASP.NET Core MVC. Los controladores reciben las peticiones HTTP (ej. `/Paciente/Paciente`), invocan los servicios de la capa de aplicación y devuelven las vistas Razor (`.cshtml`).
+1. **Capa de Dominio (El hexágono central):** Contiene las entidades puras del negocio (`Paciente`, `Medico`, `Cita`). Esta capa no sabe nada sobre la web, bases de datos o librerías externas.
+2. **Capa de Aplicación (Puertos):** Define los casos de uso y los "Puertos" (interfaces). Aquí se establecen los contratos de entrada/salida (ej. `IPacienteRepository`), definiendo qué se necesita guardar o recuperar, pero no *cómo* se hace.
+3. **Capa de Infraestructura (Adaptador de Salida):** Implementa los puertos definidos en la aplicación. Aquí se encuentra la lógica que lee, deserializa y sobreescribe los archivos JSON ubicados en `wwwroot/data/`. Si mañana se requiere usar SQL Server, solo se crea un nuevo adaptador sin modificar el centro del hexágono.
+4. **Capa de Presentación (Adaptador de Entrada):** Utiliza ASP.NET Core MVC. Los **Controllers** reciben las peticiones HTTP del navegador, interactúan con la Capa de Aplicación enviando los datos, y finalmente devuelven las **Views** (HTML/Razor) al usuario.
 
 ---
 
 ## Tecnologías utilizadas
 
-| Tecnología | Uso |
+| Tecnología | Uso en la Arquitectura |
 |---|---|
-| **ASP.NET Core MVC (.NET 10)** | Framework principal para la capa de presentación |
-| **C#** | Lenguaje de programación |
-| **Entity Framework Core / SQLite** | ORM y base de datos para la configuración de Identity e Infraestructura |
-| **JSON / System.Text.Json** | Serialización y deserialización para persistencia de datos (Adaptadores) |
-| **Razor (.cshtml)** | Motor de plantillas para las vistas |
-| **Bootstrap 5** | Framework CSS base |
-| **CSS personalizado** | Estilos visuales propios de la aplicación |
-| **JetBrains Rider** | IDE de desarrollo |
+| **ASP.NET Core MVC (.NET 10)** | Adaptador de Entrada (Interfaz de Usuario / Web). |
+| **C#** | Lenguaje de programación para todas las capas. |
+| **Razor (.cshtml)** | Motor de plantillas para renderizar la vista al usuario. |
+| **JSON** | Persistencia de datos empleada por el Adaptador de Salida. |
+| **System.Text.Json** | Herramienta de la infraestructura para serialización de datos. |
+| **Inyección de Dependencias** | Mecanismo nativo de .NET para conectar los puertos con los adaptadores. |
+| **Bootstrap 5 & CSS propio** | Framework y estilos visuales de la aplicación. |
+| **JetBrains Rider** | IDE de desarrollo. |
 
 ---
 
 ## Estructura del proyecto
 
-Bajo el enfoque hexagonal, la organización lógica del proyecto se divide de la siguiente manera para proteger el núcleo del negocio:
-<pre>
+El código refleja la separación por responsabilidades de la arquitectura hexagonal:
+
+```text
 CitasApp/
-├── Core/                       # Capa de Dominio y Aplicación (El Hexágono)
-│   ├── Entities/               # Modelos de dominio (Cita, Medico, Paciente)
-│   ├── Interfaces/             # Puertos (IRepositories, IServices)
-│   └── Services/               # Lógica de negocio y casos de uso
-├── Infrastructure/             # Capa de Infraestructura (Adaptadores de salida)
-│   ├── Data/                   # DbContext (EF Core) y configuraciones
-│   └── Repositories/           # Implementación de persistencia (JSON/SQLite)
-├── Web/                        # Capa de Presentación (Adaptadores de entrada)
-│   ├── Controllers/            # Controladores MVC (CitaController, etc.)
-│   ├── Views/                  # Vistas Razor por cada entidad
-│   └── wwwroot/                # Archivos estáticos (CSS, JS, imágenes, datos JSON)
-└── Program.cs                  # Configuración de Inyección de Dependencias (IoC)
-</pre>
+├── Core/                              # Centro del Hexágono
+│   ├── Domain/
+│   │   ├── Entities/
+│   │   │   ├── Cita.cs
+│   │   │   ├── Medico.cs
+│   │   │   └── Paciente.cs
+│   └── Application/
+│       └── Ports/                     # Puertos de Salida
+│           ├── ICitaRepository.cs
+│           ├── IMedicoRepository.cs
+│           └── IPacienteRepository.cs
+├── Infrastructure/                    # Adaptadores de Salida
+│   └── Persistence/
+│       └── JsonAdapters/
+│           ├── JsonCitaRepository.cs
+│           ├── JsonMedicoRepository.cs
+│           └── JsonPacienteRepository.cs
+├── WebUI/                             # Adaptadores de Entrada
+│   ├── Controllers/
+│   │   ├── CitaController.cs
+│   │   ├── MedicoController.cs
+│   │   └── PacienteController.cs
+│   ├── Views/
+│   │   ├── Cita/...
+│   │   ├── Medico/...
+│   │   └── Paciente/...
+│   └── wwwroot/
+│       ├── css/
+│       │   └── site.css
+│       └── data/
+│           ├── Pacientes.json
+│           ├── Medicos.json
+│           └── Citas.json
 
-## Cláusula de uso de Inteligencia Artificial
 
-Durante el desarrollo de este proyecto se utilizó **inteligencia artificial (Claude - Anthropic)** como herramienta de apoyo en las siguientes áreas:
+```
 
-- **Depuración (debugging):** Identificación y corrección de errores en tiempo de compilación y ejecución, incluyendo errores de deserialización JSON, referencias nulas y problemas de enrutamiento MVC.
-- **Implementación de estilos y frontend:** Diseño y escritura del CSS personalizado (`site.css`), incluyendo la creación de componentes visuales como tarjetas, avatares, cabeceras con gradiente, tablas estilizadas y diseño responsivo.
-
-El diseño lógico de la arquitectura, la estructura del proyecto y la implementación del backend fueron desarrollados por el alumno como parte del aprendizaje de la materia.
+# Cláusula de uso de Inteligencia Artificial
+Durante el desarrollo de este proyecto se utilizó inteligencia artificial (Claude - Anthropic) como herramienta de apoyo en las siguientes áreas:
+Refactorización y Arquitectura: Apoyo para desacoplar el código y migrar la lógica hacia los principios de Puertos y Adaptadores, asegurando la correcta implementación de la Inyección de Dependencias.
+* Depuración (debugging): Identificación y corrección de errores en tiempo de compilación y ejecución, específicamente en los adaptadores de infraestructura para la lectura/escritura de archivos JSON.
+* Implementación de estilos y frontend: Diseño y escritura del CSS personalizado (site.css), incluyendo la creación de componentes visuales como tarjetas, avatares, cabeceras con gradiente, tablas estilizadas y diseño responsivo.
+* El diseño lógico de los casos de uso, la estructura de las entidades del dominio y la integración general del backend fueron desarrollados por el alumno como parte del aprendizaje de la materia.
 
 ---
 
-*Proyecto desarrollado con fines académicos — 2026*
-
-
-
-
-
+Proyecto desarrollado con fines académicos — 2026
 
