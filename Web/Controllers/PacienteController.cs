@@ -1,26 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CitasApp.Models;
+using CitasApp.Domain.Interfaces;
 
 namespace CitasApp.Controllers
 {
     public class PacienteController : Controller
     {
-        private static List<Paciente> _pacientes = new List<Paciente>
-        {
-            new Paciente { Id = 1, Nombre = "Ana", Apellido = "García", Email = "ana@mail.com", Telefono = "555-0001" },
-            new Paciente { Id = 2, Nombre = "Luis", Apellido = "Martínez", Email = "luis@mail.com", Telefono = "555-0002" },
-            new Paciente { Id = 3, Nombre = "María", Apellido = "López", Email = "maria@mail.com", Telefono = "555-0003" }
-        };
+        private readonly IPacienteRepository _pacienteRepository;
 
-        public IActionResult Index() 
+        // El contenedor de dependencias inyectará el adaptador activo (JSON o CSV)
+        public PacienteController(IPacienteRepository pacienteRepository)
         {
-            return View(_pacientes);
+            _pacienteRepository = pacienteRepository;
+        }
+
+        public IActionResult Index()
+        {
+            var pacientes = _pacienteRepository.ObtenerTodos();
+            return View(pacientes);
         }
 
         public IActionResult Detalle(int id)
         {
-            var paciente = _pacientes.FirstOrDefault(p => p.Id == id);
-            return paciente == null ? NotFound() : View(paciente);
+            var paciente = _pacienteRepository.ObtenerPorId(id);
+            if (paciente == null)
+            {
+                return NotFound();
+            }
+            return View(paciente);
         }
     }
 }
