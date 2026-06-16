@@ -10,7 +10,10 @@ public class JsonCitaRepository : ICitaRepository
 
     public JsonCitaRepository(IWebHostEnvironment env)
     {
-        _filePath = Path.Combine(env.WebRootPath, "data", "Citas.json");
+        var root = env.WebRootPath ?? Path.Combine(env.ContentRootPath, "data");
+        _filePath = env.WebRootPath != null
+            ? Path.Combine(root, "data", "Citas.json")
+            : Path.Combine(root, "Citas.json");
     }
 
     public List<Cita> GetAll()
@@ -28,4 +31,7 @@ public class JsonCitaRepository : ICitaRepository
         citas.Add(cita);
         File.WriteAllText(_filePath, JsonSerializer.Serialize(citas, new JsonSerializerOptions { WriteIndented = true }));
     }
+
+    public List<Cita> ObtenerPorPaciente(int pacienteId) =>
+        GetAll().Where(c => c.PacienteId == pacienteId).ToList();
 }

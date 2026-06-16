@@ -8,4 +8,5 @@ public interface ICitaService
     List<CitaViewModel> GetAll();
     CitaViewModel? GetById(int id);
     void Add(Cita cita);
+    List<CitaViewModel> ObtenerPorPaciente(int pacienteId);
 }

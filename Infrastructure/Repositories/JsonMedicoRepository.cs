@@ -10,7 +10,10 @@ public class JsonMedicoRepository : IMedicoRepository
 
     public JsonMedicoRepository(IWebHostEnvironment env)
     {
-        _filePath = Path.Combine(env.WebRootPath, "data", "Medicos.json");
+        var root = env.WebRootPath ?? Path.Combine(env.ContentRootPath, "data");
+        _filePath = env.WebRootPath != null
+            ? Path.Combine(root, "data", "Medicos.json")
+            : Path.Combine(root, "Medicos.json");
     }
 
     public List<Medico> GetAll()

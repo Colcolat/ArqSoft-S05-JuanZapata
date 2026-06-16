@@ -285,3 +285,6 @@
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/scopedcss/Web/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/yg95l8t0tl-{0}-3idra5dl26-3idra5dl26.gz
 /Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/pu679a8p1l-{0}-3idra5dl26-3idra5dl26.gz
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/nvutx9ioku-{0}-wqnfsgslof-wqnfsgslof.gz
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/v84ibr62fu-{0}-w1o8hidhfc-w1o8hidhfc.gz
+/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/Debug/net10.0/compressed/62bzybyrg7-{0}-c8mqwkridi-c8mqwkridi.gz

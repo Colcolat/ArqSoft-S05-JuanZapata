@@ -10,7 +10,10 @@ public class JsonPacienteRepository : IPacienteRepository
 
     public JsonPacienteRepository(IWebHostEnvironment env)
     {
-        _filePath = Path.Combine(env.WebRootPath, "data", "Pacientes.json");
+        var root = env.WebRootPath ?? Path.Combine(env.ContentRootPath, "data");
+        _filePath = env.WebRootPath != null
+            ? Path.Combine(root, "data", "Pacientes.json")
+            : Path.Combine(root, "Pacientes.json");
     }
 
     public List<Paciente> GetAll()

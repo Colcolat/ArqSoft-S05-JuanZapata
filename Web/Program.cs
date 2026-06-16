@@ -25,10 +25,43 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
     options.ViewLocationFormats.Add("/Web/Views/Shared/{0}.cshtml");
 });
 
-// Adapters de salida (Infrastructure)
+// ── Carpeta de datos para los Adapters ───────────────────────────────────────
+var dataFolder = Path.Combine(builder.Environment.WebRootPath ?? Path.Combine(builder.Environment.ContentRootPath, "wwwroot"), "data");
+Directory.CreateDirectory(dataFolder);
+
+// Rutas para CSV y SQLite (siempre activas — solo son textos, no prenden nada)
+var csvPacientes = Path.Combine(dataFolder, "pacientes.csv");
+var csvMedicos   = Path.Combine(dataFolder, "medicos.csv");
+var csvCitas     = Path.Combine(dataFolder, "citas.csv");
+
+// Ruta para SQLite (un solo archivo .db para las 3 tablas)
+var sqlitePath   = Path.Combine(dataFolder, "citasapp.db");
+
+// ── Adapters de salida (Infrastructure) ──────────────────────────────────────
+// Descomenta el bloque que quieras y comenta los otros dos.
+// ¡Las interfaces (Ports) no cambian!
+
+// ▶ Bloque A — JSON (como estaba antes)
+
+
 builder.Services.AddScoped<ICitaRepository, JsonCitaRepository>();
 builder.Services.AddScoped<IMedicoRepository, JsonMedicoRepository>();
 builder.Services.AddScoped<IPacienteRepository, JsonPacienteRepository>();
+
+
+// ▶ Bloque B — CSV  ← activo ahora
+ /*
+builder.Services.AddSingleton<IPacienteRepository>(_ => new CsvPacienteRepository(csvPacientes));
+builder.Services.AddSingleton<IMedicoRepository>  (_ => new CsvMedicoRepository(csvMedicos));
+builder.Services.AddSingleton<ICitaRepository>    (_ => new CsvCitaRepository(csvCitas));
+*/
+
+// ▶ Bloque C — SQLite
+/*
+builder.Services.AddSingleton<IPacienteRepository>(_ => new SqlitePacienteRepository(sqlitePath));
+builder.Services.AddSingleton<IMedicoRepository>  (_ => new SqliteMedicoRepository(sqlitePath));
+builder.Services.AddSingleton<ICitaRepository>    (_ => new SqliteCitaRepository(sqlitePath));
+*/
 
 // Núcleo de negocio (Application Services)
 builder.Services.AddScoped<ICitaService, CitaService>();
@@ -53,6 +86,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
+app.MapControllers();
 
 app.MapControllerRoute(
         name: "default",

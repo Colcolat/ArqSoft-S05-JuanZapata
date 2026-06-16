@@ -7,4 +7,5 @@ public interface ICitaRepository
     List<Cita> GetAll();
     Cita? GetById(int id);
     void Add(Cita cita);
+    List<Cita> ObtenerPorPaciente(int pacienteId);
 }

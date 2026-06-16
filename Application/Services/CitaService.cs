@@ -60,4 +60,23 @@ public class CitaService : ICitaService
     }
 
     public void Add(Cita cita) => _citaRepo.Add(cita);
+
+    public List<CitaViewModel> ObtenerPorPaciente(int pacienteId)
+    {
+        var citas = _citaRepo.ObtenerPorPaciente(pacienteId);
+        var pacientes = _pacienteRepo.GetAll();
+        var medicos = _medicoRepo.GetAll();
+
+        return citas.Select(c => new CitaViewModel
+        {
+            Id = c.Id,
+            NombrePaciente = pacientes.FirstOrDefault(p => p.Id == c.PacienteId)?.Nombre + " " +
+                             pacientes.FirstOrDefault(p => p.Id == c.PacienteId)?.Apellido,
+            NombreMedico = medicos.FirstOrDefault(m => m.Id == c.MedicoId)?.Nombre,
+            Fecha = c.Fecha,
+            FechaHora = c.FechaHora,
+            Motivo = c.Motivo,
+            Estado = c.Estado
+        }).ToList();
+    }
 }
