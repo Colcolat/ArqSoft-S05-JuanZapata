@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora API — CitasApp</title>
+<style>
+  :root{
+    --bg:#0d1117;
+    --panel:#11161d;
+    --line:#22293380;
+    --text:#e6edf3;
+    --muted:#7d8590;
+    --accent:#39d98a;
+    --accent-dim:#1d6b48;
+    --err:#ff6b6b;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--mono);
+    min-height:100vh;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:48px 16px;
+  }
+  .wrap{ width:100%; max-width:640px; }
+  .prompt{
+    color:var(--accent);
+    font-size:13px;
+    margin-bottom:6px;
+    letter-spacing:0.02em;
+  }
+  h1{
+    font-size:20px;
+    margin:0 0 4px;
+    font-weight:600;
+  }
+  .sub{
+    color:var(--muted);
+    font-size:13px;
+    margin:0 0 28px;
+  }
+  .config{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    margin-bottom:24px;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .config input{
+    background:var(--panel);
+    border:1px solid var(--line);
+    color:var(--text);
+    font-family:var(--mono);
+    font-size:13px;
+    padding:6px 10px;
+    border-radius:4px;
+    width:220px;
+  }
+  .config input:focus{ outline:none; border-color:var(--accent); }
+
+  .panel{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:20px;
+  }
+  .row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  label{
+    display:block;
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  input[type=number]{
+    width:100%;
+    background:#0a0e13;
+    border:1px solid var(--line);
+    color:var(--text);
+    font-family:var(--mono);
+    font-size:15px;
+    padding:9px 10px;
+    border-radius:5px;
+  }
+  input[type=number]:focus{ outline:none; border-color:var(--accent); }
+
+  .ops{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+    margin-bottom:18px;
+  }
+  button.op{
+    background:#0a0e13;
+    border:1px solid var(--line);
+    color:var(--text);
+    font-family:var(--mono);
+    font-size:18px;
+    padding:12px 0;
+    border-radius:6px;
+    cursor:pointer;
+    transition:border-color .15s, color .15s, background .15s;
+  }
+  button.op:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+    background:#0d1f17;
+  }
+
+  .result{
+    border-top:1px solid var(--line);
+    padding-top:14px;
+    min-height:64px;
+  }
+  .placeholder{ color:var(--muted); font-size:13px; }
+  .line{ font-size:13px; margin:2px 0; }
+  .line .k{ color:var(--muted); }
+  .line .v{ color:var(--text); }
+  .resultado{
+    font-size:24px;
+    color:var(--accent);
+    margin-top:6px;
+  }
+  .resultado.err{ color:var(--err); font-size:14px; }
+
+  .endpoint{
+    font-size:11px;
+    color:var(--muted);
+    margin-top:10px;
+    word-break:break-all;
+  }
+  .endpoint .m{ color:var(--accent-dim); }
+
+  footer{
+    margin-top:18px;
+    font-size:12px;
+    color:var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="prompt">$ test/calculadora-api</div>
+  <h1>Calculadora API</h1>
+  <p class="sub">Cliente de prueba para CalculadoraController — GET /api/calculadora/{operacion}</p>
+
+  <div class="config">
+    <span>Base URL</span>
+    <input id="baseUrl" value="http://localhost:5044" spellcheck="false">
+  </div>
+
+  <div class="panel">
+    <div class="row">
+      <div>
+        <label for="a">Valor A</label>
+        <input type="number" id="a" value="10" step="any">
+      </div>
+      <div>
+        <label for="b">Valor B</label>
+        <input type="number" id="b" value="5" step="any">
+      </div>
+    </div>
+
+    <div class="ops">
+      <button class="op" data-op="sumar">+</button>
+      <button class="op" data-op="restar">−</button>
+      <button class="op" data-op="multiplicar">×</button>
+      <button class="op" data-op="dividir">÷</button>
+    </div>
+
+    <div class="result" id="result">
+      <span class="placeholder">Elige una operación para llamar a la API.</span>
+    </div>
+  </div>
+
+  <footer>CitasApp · Api/Controllers/CalculadoraController.cs</footer>
+</div>
+
+<script>
+  const resultEl = document.getElementById('result');
+
+  document.querySelectorAll('.op').forEach(btn => {
+    btn.addEventListener('click', () => ejecutar(btn.dataset.op));
+  });
+
+  async function ejecutar(op){
+    const base = document.getElementById('baseUrl').value.replace(/\/$/, '');
+    const a = document.getElementById('a').value;
+    const b = document.getElementById('b').value;
+    const url = `${base}/api/calculadora/${op}?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`;
+
+    resultEl.innerHTML = `<span class="placeholder">Llamando a la API…</span>`;
+
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (!res.ok) {
+        resultEl.innerHTML = `
+          <div class="line"><span class="k">status</span> <span class="v">${res.status}</span></div>
+          <div class="resultado err">${data.error ?? 'Error en la solicitud'}</div>
+          <div class="endpoint"><span class="m">GET</span> ${url}</div>
+        `;
+        return;
+      }
+
+      resultEl.innerHTML = `
+        <div class="line"><span class="k">operación</span> <span class="v">${data.operacion}</span></div>
+        <div class="line"><span class="k">a</span> <span class="v">${data.a}</span> &nbsp; <span class="k">b</span> <span class="v">${data.b}</span></div>
+        <div class="resultado">= ${data.resultado}</div>
+        <div class="endpoint"><span class="m">GET</span> ${url}</div>
+      `;
+    } catch (e) {
+      resultEl.innerHTML = `
+        <div class="resultado err">No se pudo conectar con la API.</div>
+        <div class="line">Verifica que el proyecto Api esté corriendo y que la Base URL sea correcta.</div>
+        <div class="endpoint"><span class="m">GET</span> ${url}</div>
+      `;
+    }
+  }
+</script>
+</body>
+</html>
