@@ -73,6 +73,10 @@ El proyecto soporta tres adapters de persistencia intercambiables mediante inyec
 | GET | `/api/calculadora/multiplicar` | `a`, `b` |
 | GET | `/api/calculadora/dividir` | `a`, `b` (valida división entre cero) |
 
+# Capturas de pantalla
+
+Se encuentran en la carpeta docs/
+
 ## Cómo ejecutar
 
 ```bash
