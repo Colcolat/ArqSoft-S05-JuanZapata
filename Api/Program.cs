@@ -9,7 +9,13 @@ builder.Services.AddCors(options =>
 });
 builder.Services.AddControllers();
 // Repositorios
-builder.Services.AddScoped<IPacienteRepository, JsonPacienteRepository>();
+builder.Services.AddScoped<IPacienteRepository>(sp =>
+{
+    var env  = sp.GetRequiredService<IWebHostEnvironment>();
+    var repo = RepositoryFactory.CrearPacienteRepository(
+                    builder.Environment.EnvironmentName, env);
+    return new LoggingPacienteRepository(repo);
+});
 builder.Services.AddScoped<IMedicoRepository, JsonMedicoRepository>();
 builder.Services.AddScoped<ICitaRepository, JsonCitaRepository>();
 // Servicios de aplicación

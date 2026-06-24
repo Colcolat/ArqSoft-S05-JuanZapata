@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Joss/RiderProjects/CitasApp/CitasApp/CitasApp.csproj": {}
+    "/Users/Joss/RiderProjects/CitasApp/CitasApp.csproj": {}
   },
   "projects": {
-    "/Users/Joss/RiderProjects/CitasApp/CitasApp/CitasApp.csproj": {
+    "/Users/Joss/RiderProjects/CitasApp/CitasApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Joss/RiderProjects/CitasApp/CitasApp/CitasApp.csproj",
+        "projectUniqueName": "/Users/Joss/RiderProjects/CitasApp/CitasApp.csproj",
         "projectName": "CitasApp",
-        "projectPath": "/Users/Joss/RiderProjects/CitasApp/CitasApp/CitasApp.csproj",
+        "projectPath": "/Users/Joss/RiderProjects/CitasApp/CitasApp.csproj",
         "packagesPath": "/Users/Joss/.nuget/packages/",
-        "outputPath": "/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/",
+        "outputPath": "/Users/Joss/RiderProjects/CitasApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Joss/.nuget/NuGet/NuGet.Config"

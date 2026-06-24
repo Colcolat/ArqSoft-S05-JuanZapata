@@ -2708,11 +2708,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Joss/RiderProjects/CitasApp/CitasApp/CitasApp.csproj",
+      "projectUniqueName": "/Users/Joss/RiderProjects/CitasApp/CitasApp.csproj",
       "projectName": "CitasApp",
-      "projectPath": "/Users/Joss/RiderProjects/CitasApp/CitasApp/CitasApp.csproj",
+      "projectPath": "/Users/Joss/RiderProjects/CitasApp/CitasApp.csproj",
       "packagesPath": "/Users/Joss/.nuget/packages/",
-      "outputPath": "/Users/Joss/RiderProjects/CitasApp/CitasApp/obj/",
+      "outputPath": "/Users/Joss/RiderProjects/CitasApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/Joss/.nuget/NuGet/NuGet.Config"
@@ -3207,5 +3207,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
+      "libraryId": "SQLitePCLRaw.lib.e_sqlite3",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }
