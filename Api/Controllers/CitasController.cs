@@ -1,27 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using CitasApp.Domain.Interfaces;
+using CitasApp.Application.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers
+namespace CitasApp.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class CitasController : ControllerBase
     {
-        private readonly ICitaRepository _repository;
+        private readonly CitaService _service;
 
-        public CitasController(ICitaRepository repository)
+        public CitasController(CitaService service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet]
-        public IActionResult GetAll() => Ok(_repository.ObtenerTodos());
+        public IActionResult GetAll() => Ok(_service.GetAll());
 
-        [HttpGet("porpaciente/{pacienteId}")]
-        public IActionResult PorPaciente(int pacienteId)
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
         {
-            var citas = _repository.ObtenerPorPaciente(pacienteId);
-            return citas.Count == 0 ? NotFound() : Ok(citas);
+            var cita = _service.GetById(id);
+            return cita == null ? NotFound() : Ok(cita);
         }
     }
 }

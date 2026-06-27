@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using CitasApp.Domain.Interfaces;
+using CitasApp.Application.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CitasApp.Api.Controllers
 {
@@ -7,20 +7,20 @@ namespace CitasApp.Api.Controllers
     [Route("api/[controller]")]
     public class PacientesController : ControllerBase
     {
-        private readonly IPacienteRepository _repository;
+        private readonly PacienteService _service;
 
-        public PacientesController(IPacienteRepository repository)
+        public PacientesController(PacienteService service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet]
-        public IActionResult GetAll() => Ok(_repository.ObtenerTodos());
+        public IActionResult GetAll() => Ok(_service.GetAll());
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var paciente = _repository.ObtenerPorId(id);
+            var paciente = _service.GetById(id);
             return paciente == null ? NotFound() : Ok(paciente);
         }
     }
