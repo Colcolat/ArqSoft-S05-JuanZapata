@@ -31,7 +31,7 @@ public class CitaService : ICitaService
                              pacientes.FirstOrDefault(p => p.Id == c.PacienteId)?.Apellido,
             NombreMedico = medicos.FirstOrDefault(m => m.Id == c.MedicoId)?.Nombre ?? string.Empty,
             Fecha = c.Fecha.ToString(),
-            FechaHora = $"{c.Fecha} {c.Hora}",
+            FechaHora = c.FechaHora,
             Motivo = c.Motivo,
             Estado = c.Estado
         }).ToList();
@@ -53,7 +53,7 @@ public class CitaService : ICitaService
             NombrePaciente = paciente?.Nombre + " " + paciente?.Apellido,
             NombreMedico = medico?.Nombre ?? string.Empty,
             Fecha = cita.Fecha.ToString(),
-            FechaHora = $"{cita.Fecha} {cita.Hora}",
+            FechaHora = cita.FechaHora,
             Motivo = cita.Motivo,
             Estado = cita.Estado
         };
@@ -74,7 +74,7 @@ public class CitaService : ICitaService
                              pacientes.FirstOrDefault(p => p.Id == c.PacienteId)?.Apellido,
             NombreMedico = medicos.FirstOrDefault(m => m.Id == c.MedicoId)?.Nombre ?? string.Empty,
             Fecha = c.Fecha.ToString(),
-            FechaHora = $"{c.Fecha} {c.Hora}",
+            FechaHora = c.FechaHora,
             Motivo = c.Motivo,
             Estado = c.Estado
         }).ToList();
