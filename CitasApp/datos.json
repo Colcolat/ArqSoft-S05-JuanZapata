@@ -1,0 +1,13 @@
+{
+  "Pacientes": [
+    {
+      "Id": 1,
+      "Nombre": "Juan",
+      "Apellido": "Zapata",
+      "Email": "juan@correo.com",
+      "Telefono": "123456"
+    }
+  ],
+  "Medicos": [],
+  "Citas": []
+}

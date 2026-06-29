@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9d8ab15e-98a7-4622-a082-803ef054c10c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CitasApp/Models/Paciente.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CitasApp/Models/Paciente.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CitasApp/obj/Debug/net10.0/CitasApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CitasApp/obj/Debug/net10.0/CitasApp.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CitasApp/obj/Debug/net10.0/CitasApp.RazorAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CitasApp/obj/Debug/net10.0/CitasApp.RazorAssemblyInfo.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/jjzap/IdeaProjects/ArqSoft-S05-JuanZapata" value="3FoONpBXffsrp2Sfd0sabHe42UG" />
+    </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Colcolat&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Colcolat/ArqSoft-S05-JuanZapata.git&quot;,
+    &quot;accountId&quot;: &quot;2ddd04ed-42db-422e-a0b5-a153f5669db8&quot;
+  }
+}</component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.5097147755479932" />
+      <entry key="MS500" value="3.4477729769418057" />
+      <entry key="S2" value="4.844285040530045" />
+      <entry key="S5" value="7.528425327248155" />
+      <entry key="S10" value="10.584756056536783" />
+      <entry key="S30" value="14.322885957098917" />
+      <entry key="S60" value="15.84380196697545" />
+      <entry key="M2" value="17.697408927172198" />
+      <entry key="M5" value="22.919967718002507" />
+      <entry key="M10" value="30.157272990567282" />
+      <entry key="M15" value="34.75743297881777" />
+      <entry key="M30" value="41.37590867263893" />
+      <entry key="H1" value="45.73351733902623" />
+      <entry key="H2" value="48.241454445869145" />
+      <entry key="H4" value="49.58780474255223" />
+      <entry key="D1" value="50.75991928463213" />
+      <entry key="W1" value="50.965585386832885" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.4478991777663437" />
+      <entry key="MS500" value="3.4184665799529776" />
+      <entry key="S2" value="4.833857495476375" />
+      <entry key="S5" value="7.521864061187629" />
+      <entry key="S10" value="10.580132090996173" />
+      <entry key="S30" value="14.320799435739753" />
+      <entry key="S60" value="15.842635112531719" />
+      <entry key="M2" value="17.69671345398057" />
+      <entry key="M5" value="22.91924856488132" />
+      <entry key="M10" value="30.156421080140714" />
+      <entry key="M15" value="34.75663300021302" />
+      <entry key="M30" value="41.37533444344257" />
+      <entry key="H1" value="45.73317136608779" />
+      <entry key="H2" value="48.241264326825345" />
+      <entry key="H4" value="49.587705059468355" />
+      <entry key="D1" value="50.75990199776883" />
+      <entry key="W1" value="50.96558290038269" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3FoONpBXffsrp2Sfd0sabHe42UG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GOF&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d8ab15e-98a7-4622-a082-803ef054c10c" name="Changes" comment="" />
+      <created>1782737917477</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1782737917477</updated>
+      <workItem from="1782737918894" duration="960000" />
+      <workItem from="1782739008944" duration="1774000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
