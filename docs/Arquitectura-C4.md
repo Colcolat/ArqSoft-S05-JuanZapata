@@ -48,3 +48,42 @@ C4Container
     Rel(webApp, database, "Lee y escribe en", "File I/O / SQL")
     Rel(api, database, "Lee y escribe en", "File I/O / SQL")
 ```
+
+---
+
+## 3. C4 Nivel 3 — Componentes
+
+**Para quién es:** Para los desarrolladores de software del equipo.  
+**Qué pregunta responde:** ¿Cómo está estructurado internamente el contenedor principal? ¿Cuáles son los módulos, servicios, repositorios y patrones de diseño utilizados?
+
+```mermaid
+C4Component
+    title Diagrama de Componentes (Nivel 3) para la Aplicación Web
+
+    Container_Boundary(webApp_bound, "Aplicación Web MVC / API") {
+        Component(controllers, "Controladores MVC / API", "ASP.NET Controllers", "Manejan las peticiones HTTP y renderizan vistas. (Ej. CitasController, ApiCitasController)")
+        
+        Boundary(app_layer, "CitasApp.Application (Capa de Aplicación)") {
+            Component(services, "Servicios (Application Services)", "C# Classes", "Contienen la lógica de orquestación. (Ej. CitaService, PacienteService, MedicoService)")
+        }
+        
+        Boundary(domain_layer, "CitasApp.Domain (Capa de Dominio)") {
+            Component(models, "Entidades del Dominio", "C# Classes", "Clases base del negocio. (Cita, Paciente, Medico)")
+            Component(interfaces, "Interfaces de Repositorios", "C# Interfaces", "Contratos para la persistencia. (ICitaRepository)")
+        }
+        
+        Boundary(infra_layer, "CitasApp.Infrastructure (Capa de Infraestructura)") {
+            Component(repos, "Repositorios Concretos", "Patrón Factory / Repository", "Implementan el acceso a datos. (Ej. JsonCitaRepository, SqliteCitaRepository)")
+            Component(observers, "Notificadores", "Patrón Observer", "Notifican eventos. (Ej. EmailObserver, SmsObserver)")
+        }
+    }
+    
+    ContainerDb(database, "Persistencia de Datos", "JSON / SQLite", "Archivos JSON y base de datos relacional.")
+
+    Rel(controllers, services, "Delega lógica a", "Inyección de Dependencias")
+    Rel(services, interfaces, "Usa contratos de", "Interfaces")
+    Rel(services, models, "Usa y retorna", "Entidades")
+    Rel(repos, interfaces, "Implementa", "Herencia")
+    Rel(services, observers, "Notifica a", "Patrón Observer")
+    Rel(repos, database, "Lee / Escribe", "I/O")
+```
