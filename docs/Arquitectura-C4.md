@@ -23,3 +23,28 @@ C4Context
     Rel(medico, citasApp, "Consulta su agenda", "Web Browser")
     Rel(admin, citasApp, "Administra el sistema", "Web Browser")
 ```
+
+---
+
+## 2. C4 Nivel 2 — Contenedores
+
+**Para quién es:** Para el equipo técnico, arquitectos de software y desarrolladores.  
+**Qué pregunta responde:** ¿Cuáles son las grandes piezas técnicas que conforman el sistema, de qué tecnologías están hechas y cómo se comunican entre sí?
+
+```mermaid
+C4Container
+    title Diagrama de Contenedores (Nivel 2) para CitasApp
+
+    Person(usuario, "Usuarios", "Pacientes, Médicos y Administradores.")
+
+    System_Boundary(citasApp_bound, "CitasApp") {
+        Container(webApp, "Aplicación Web (MVC)", "ASP.NET Core MVC", "Provee la interfaz de usuario renderizando vistas HTML y consumiendo los servicios.")
+        Container(api, "API REST", "ASP.NET Core Web API", "Expone endpoints para integraciones y clientes externos.")
+        ContainerDb(database, "Persistencia de Datos", "JSON / SQLite", "Almacena los registros de pacientes, médicos y citas médicas.")
+    }
+
+    Rel(usuario, webApp, "Visita y usa", "HTTPS")
+    Rel(usuario, api, "Consume datos vía", "JSON/HTTPS")
+    Rel(webApp, database, "Lee y escribe en", "File I/O / SQL")
+    Rel(api, database, "Lee y escribe en", "File I/O / SQL")
+```
