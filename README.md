@@ -7,6 +7,14 @@
 
 ---
 
+## Diagramas de Arquitectura
+
+Los diagramas C4 (Contexto, Contenedores, Componentes) y el flujo general del sistema están disponibles en:
+
+**[docs/diagramas.md](docs/diagramas.md)**
+
+---
+
 ## Descripción
 
 CitasApp es un sistema web de gestión de citas médicas desarrollado con ASP.NET Core MVC. Permite administrar pacientes, médicos y citas de forma sencilla. Esta versión del proyecto ha sido refactorizada hacia una **Arquitectura Hexagonal (Puertos y Adaptadores)**, lo que permite una clara separación de responsabilidades aislando la lógica de negocio (dominio) de los detalles técnicos como la interfaz de usuario y la persistencia de datos.
