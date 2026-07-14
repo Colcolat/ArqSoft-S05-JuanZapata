@@ -209,11 +209,8 @@
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/yfc7ypekbg-{0}-mlv21k5csn-mlv21k5csn.gz
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/fgxyf1uxgv-{0}-jdx5rvsyxs-jdx5rvsyxs.gz
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/v84ibr62fu-{0}-bpieyhsn1j-bpieyhsn1j.gz
-/Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/5mi2r1et4g-{0}-0g7l4oypsi-0g7l4oypsi.gz
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/nvutx9ioku-{0}-wqnfsgslof-wqnfsgslof.gz
-/Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/ka9id0197a-{0}-kfoqldb633-kfoqldb633.gz
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/62bzybyrg7-{0}-zz9kon3lyr-zz9kon3lyr.gz
-/Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/uesqawqrif-{0}-k0xlgsg8h3-k0xlgsg8h3.gz
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/xh1fecoa3y-{0}-s6pw3wn50c-s6pw3wn50c.gz
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/bujcvv2wj7-{0}-fr7q2aak1r-fr7q2aak1r.gz
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/q5c6nj6b9e-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -288,3 +285,6 @@
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/CitasApp.pdb
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/CitasApp.genruntimeconfig.cache
 /Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/ref/CitasApp.dll
+/Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/uesqawqrif-{0}-pp98izab42-pp98izab42.gz
+/Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/ka9id0197a-{0}-o9iytoeso2-o9iytoeso2.gz
+/Users/Joss/RiderProjects/CitasApp/obj/Debug/net10.0/compressed/5mi2r1et4g-{0}-h98gqi9w1p-h98gqi9w1p.gz

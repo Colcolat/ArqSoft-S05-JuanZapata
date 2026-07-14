@@ -34,5 +34,23 @@
     "FechaHora": "00:30",
     "Motivo": "Dolor en el coraz\u00F3n por desamor",
     "Estado": "Confirmada"
+  },
+  {
+    "Id": 5,
+    "PacienteId": 5,
+    "MedicoId": 1,
+    "Fecha": "2026-07-16",
+    "FechaHora": "13:30",
+    "Motivo": "Dolor de coraz\u00F3n",
+    "Estado": "Confirmada"
+  },
+  {
+    "Id": 6,
+    "PacienteId": 5,
+    "MedicoId": 1,
+    "Fecha": null,
+    "FechaHora": "1:00 PM",
+    "Motivo": "dolor de cabeza",
+    "Estado": "Confirmada"
   }
 ]
