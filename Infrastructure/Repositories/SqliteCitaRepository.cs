@@ -120,6 +120,16 @@ namespace CitasApp.Infrastructure.Repositories
             return lista;
         }
 
+        public void ActualizarEstado(int id, string estado)
+        {
+            using var conn = Conectar();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "UPDATE Citas SET Estado = $estado WHERE Id = $id;";
+            cmd.Parameters.AddWithValue("$estado", estado);
+            cmd.Parameters.AddWithValue("$id", id);
+            cmd.ExecuteNonQuery();
+        }
+
         public void Add(Cita cita)
         {
             using var conn = Conectar();

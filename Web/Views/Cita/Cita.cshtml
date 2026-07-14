@@ -11,7 +11,10 @@
             <h2>Citas</h2>
             <p class="page-header-sub">@Model.Count cita(s) registrada(s)</p>
         </div>
-        <a asp-action="Nuevo" class="btn btn-light-outline">+ Agregar Nueva</a>
+        @if (User.IsInRole("Admin") || User.IsInRole("Paciente"))
+        {
+            <a asp-action="Nuevo" class="btn btn-light-outline">+ Agregar Nueva</a>
+        }
     </div>
 </div>
 
@@ -50,8 +53,24 @@
                             <span class="badge bg-warning">Pendiente</span>
                         }
                     </td>
-                    <td>
+                    <td class="d-flex gap-1 flex-wrap">
                         <a asp-action="Detalle" asp-route-id="@cita.Id" class="btn btn-info btn-sm">Ver</a>
+                        @if ((User.IsInRole("Medico") || User.IsInRole("Admin")) && cita.Estado == "Pendiente")
+                        {
+                            <form asp-action="CambiarEstado" method="post" class="d-inline">
+                                <input type="hidden" name="id" value="@cita.Id"/>
+                                <input type="hidden" name="estado" value="Confirmada"/>
+                                <button type="submit" class="btn btn-success btn-sm">Confirmar</button>
+                            </form>
+                        }
+                        @if ((User.IsInRole("Medico") || User.IsInRole("Admin")) && cita.Estado == "Confirmada")
+                        {
+                            <form asp-action="CambiarEstado" method="post" class="d-inline">
+                                <input type="hidden" name="id" value="@cita.Id"/>
+                                <input type="hidden" name="estado" value="Pendiente"/>
+                                <button type="submit" class="btn btn-warning btn-sm">Marcar Pendiente</button>
+                            </form>
+                        }
                     </td>
                 </tr>
             }

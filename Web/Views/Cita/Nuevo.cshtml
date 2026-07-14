@@ -58,7 +58,24 @@
 
         <div class="mb-3">
             <label class="form-label">Hora</label>
-            <input asp-for="FechaHora" type="time" class="form-control" />
+            <div class="d-flex gap-2">
+                <select name="hora" class="form-select" style="width:auto">
+                    @for (int h = 1; h <= 12; h++)
+                    {
+                        <option value="@h">@h</option>
+                    }
+                </select>
+                <select name="minuto" class="form-select" style="width:auto">
+                    @for (int m = 0; m < 60; m += 5)
+                    {
+                        <option value="@m.ToString("D2")">@m.ToString("D2")</option>
+                    }
+                </select>
+                <select name="ampm" class="form-select" style="width:auto">
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+            </div>
         </div>
 
         <div class="mb-3">
@@ -66,13 +83,20 @@
             <input asp-for="Motivo" class="form-control" placeholder="Ej. Consulta general" />
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Estado</label>
-            <select asp-for="Estado" class="form-select">
-                <option value="Pendiente">Pendiente</option>
-                <option value="Confirmada">Confirmada</option>
-            </select>
-        </div>
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="mb-3">
+                <label class="form-label">Estado</label>
+                <select asp-for="Estado" class="form-select">
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Confirmada">Confirmada</option>
+                </select>
+            </div>
+        }
+        else
+        {
+            <input type="hidden" asp-for="Estado" value="Pendiente" />
+        }
 
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Guardar</button>

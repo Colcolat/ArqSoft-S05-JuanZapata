@@ -9,4 +9,5 @@ public interface ICitaRepository
     void Add(Cita cita);
     List<Cita> ObtenerPorPaciente(int pacienteId);
     List<Cita> ObtenerPorMedico(int medicoId);
+    void ActualizarEstado(int id, string estado);
 }

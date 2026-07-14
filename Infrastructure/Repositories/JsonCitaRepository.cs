@@ -37,4 +37,13 @@ public class JsonCitaRepository : ICitaRepository
 
     public List<Cita> ObtenerPorMedico(int medicoId) =>
         GetAll().Where(c => c.MedicoId == medicoId).ToList();
+
+    public void ActualizarEstado(int id, string estado)
+    {
+        var citas = GetAll();
+        var cita = citas.FirstOrDefault(c => c.Id == id);
+        if (cita == null) return;
+        cita.Estado = estado;
+        File.WriteAllText(_filePath, JsonSerializer.Serialize(citas, new JsonSerializerOptions { WriteIndented = true }));
+    }
 }

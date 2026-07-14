@@ -71,16 +71,27 @@ public class CitaController : Controller
 
     [HttpPost]
     [Authorize(Roles = "Admin,Paciente")]
-    public IActionResult Nuevo(Cita cita)
+    public IActionResult Nuevo(Cita cita, string hora, string minuto, string ampm)
     {
+        cita.FechaHora = $"{hora}:{minuto} {ampm}";
+
         if (User.IsInRole("Paciente"))
         {
             var email = User.FindFirstValue(ClaimTypes.Email) ?? "";
             var paciente = _pacienteService.GetAll().FirstOrDefault(p => p.Email == email);
             if (paciente != null) cita.PacienteId = paciente.Id;
+            cita.Estado = "Pendiente";
         }
 
         _citaService.Add(cita);
+        return RedirectToAction("Cita");
+    }
+
+    [HttpPost]
+    [Authorize(Roles = "Admin,Medico")]
+    public IActionResult CambiarEstado(int id, string estado)
+    {
+        _citaService.ActualizarEstado(id, estado);
         return RedirectToAction("Cita");
     }
 }

@@ -86,6 +86,17 @@ namespace CitasApp.Infrastructure.Repositories
         public List<Cita> ObtenerPorMedico(int medicoId) =>
             LeerTodos().Where(c => c.MedicoId == medicoId).ToList();
 
+        public void ActualizarEstado(int id, string estado)
+        {
+            var citas = LeerTodos();
+            var cita = citas.FirstOrDefault(c => c.Id == id);
+            if (cita == null) return;
+            cita.Estado = estado;
+            var lineas = new List<string> { "Id,PacienteId,MedicoId,Fecha,FechaHora,Motivo,Estado" };
+            lineas.AddRange(citas.Select(c => $"{c.Id},{c.PacienteId},{c.MedicoId},{c.Fecha},{c.FechaHora},{c.Motivo},{c.Estado}"));
+            File.WriteAllLines(_filePath, lineas);
+        }
+
         public void Add(Cita cita)
         {
             var citas = LeerTodos();

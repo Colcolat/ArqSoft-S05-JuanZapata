@@ -61,6 +61,8 @@ public class CitaService : ICitaService
 
     public void Add(Cita cita) => _citaRepo.Add(cita);
 
+    public void ActualizarEstado(int id, string estado) => _citaRepo.ActualizarEstado(id, estado);
+
     public List<CitaViewModel> ObtenerPorPaciente(int pacienteId)
     {
         var citas = _citaRepo.ObtenerPorPaciente(pacienteId);
