@@ -7,5 +7,5 @@ public class Medico
     public string Apellido { get; set; }
     public string Especialidad { get; set; }
     public string NumeroLicencia { get; set; }
-    
+    public string Email { get; set; } = string.Empty;
 }

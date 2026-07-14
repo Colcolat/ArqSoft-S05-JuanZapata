@@ -105,6 +105,21 @@ namespace CitasApp.Infrastructure.Repositories
             return lista;
         }
 
+        public List<Cita> ObtenerPorMedico(int medicoId)
+        {
+            using var conn = Conectar();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText =
+                "SELECT Id, PacienteId, MedicoId, Fecha, Hora, Motivo, Estado " +
+                "FROM Citas WHERE MedicoId = $mid;";
+            cmd.Parameters.AddWithValue("$mid", medicoId);
+
+            var lista = new List<Cita>();
+            using var r = cmd.ExecuteReader();
+            while (r.Read()) lista.Add(LeerFila(r));
+            return lista;
+        }
+
         public void Add(Cita cita)
         {
             using var conn = Conectar();

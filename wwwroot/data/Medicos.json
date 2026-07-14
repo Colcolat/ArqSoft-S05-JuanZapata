@@ -4,27 +4,31 @@
     "Nombre": "Dr. Carlos Reyes",
     "Apellido": null,
     "Especialidad": "Medicina General",
-    "NumeroLicencia": "MG-10421"
+    "NumeroLicencia": "MG-10421",
+    "Email": "carlos.reyes@citasapp.com"
   },
   {
     "Id": 2,
     "Nombre": "Dra. Patricia Vega",
     "Apellido": null,
-    "Especialidad": "Pediatr\u00EDa",
-    "NumeroLicencia": "PD-20835"
+    "Especialidad": "Pediatría",
+    "NumeroLicencia": "PD-20835",
+    "Email": "patricia.vega@citasapp.com"
   },
   {
     "Id": 3,
-    "Nombre": "Dr. Roberto S\u00E1nchez",
+    "Nombre": "Dr. Roberto Sánchez",
     "Apellido": null,
-    "Especialidad": "Cardiolog\u00EDa",
-    "NumeroLicencia": "CA-30117"
+    "Especialidad": "Cardiología",
+    "NumeroLicencia": "CA-30117",
+    "Email": "roberto.sanchez@citasapp.com"
   },
   {
     "Id": 4,
     "Nombre": "Juan",
     "Apellido": null,
     "Especialidad": "Jose",
-    "NumeroLicencia": "9831842420"
+    "NumeroLicencia": "9831842420",
+    "Email": "juan@citasapp.com"
   }
 ]

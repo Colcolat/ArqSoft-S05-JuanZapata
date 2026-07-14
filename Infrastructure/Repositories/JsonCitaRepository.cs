@@ -34,4 +34,7 @@ public class JsonCitaRepository : ICitaRepository
 
     public List<Cita> ObtenerPorPaciente(int pacienteId) =>
         GetAll().Where(c => c.PacienteId == pacienteId).ToList();
+
+    public List<Cita> ObtenerPorMedico(int medicoId) =>
+        GetAll().Where(c => c.MedicoId == medicoId).ToList();
 }

@@ -83,6 +83,9 @@ namespace CitasApp.Infrastructure.Repositories
         public List<Cita> ObtenerPorPaciente(int pacienteId) =>
             LeerTodos().Where(c => c.PacienteId == pacienteId).ToList();
 
+        public List<Cita> ObtenerPorMedico(int medicoId) =>
+            LeerTodos().Where(c => c.MedicoId == medicoId).ToList();
+
         public void Add(Cita cita)
         {
             var citas = LeerTodos();

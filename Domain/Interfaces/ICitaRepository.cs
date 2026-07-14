@@ -8,4 +8,5 @@ public interface ICitaRepository
     Cita? GetById(int id);
     void Add(Cita cita);
     List<Cita> ObtenerPorPaciente(int pacienteId);
+    List<Cita> ObtenerPorMedico(int medicoId);
 }

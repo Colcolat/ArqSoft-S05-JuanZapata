@@ -15,7 +15,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.Configure<RazorViewEngineOptions>(options =>
@@ -103,4 +104,30 @@ app.MapControllerRoute(
 app.MapRazorPages()
     .WithStaticAssets();
 
-app.Run();
+using (var scope = app.Services.CreateScope())
+{
+    var db          = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+    db.Database.Migrate();
+
+    foreach (var rol in new[] { "Admin", "Medico", "Paciente" })
+        if (!await roleManager.RoleExistsAsync(rol))
+            await roleManager.CreateAsync(new IdentityRole(rol));
+
+    await SeedUsuario(userManager, "jorgepedrozo@gmail.com", "Admin@123", "Admin");
+    await SeedUsuario(userManager, "josuepoot@gmail.com",    "Paciente@123", "Paciente");
+    await SeedUsuario(userManager, "carlos.reyes@citasapp.com",    "Medico@123", "Medico");
+    await SeedUsuario(userManager, "patricia.vega@citasapp.com",   "Medico@123", "Medico");
+    await SeedUsuario(userManager, "roberto.sanchez@citasapp.com", "Medico@123", "Medico");
+}
+
+await app.RunAsync();
+
+static async Task SeedUsuario(UserManager<IdentityUser> um, string email, string password, string rol)
+{
+    if (await um.FindByEmailAsync(email) != null) return;
+    var user = new IdentityUser { UserName = email, Email = email, EmailConfirmed = true };
+    var result = await um.CreateAsync(user, password);
+    if (result.Succeeded) await um.AddToRoleAsync(user, rol);
+}

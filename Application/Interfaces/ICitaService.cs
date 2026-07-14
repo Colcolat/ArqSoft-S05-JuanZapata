@@ -9,4 +9,5 @@ public interface ICitaService
     CitaViewModel? GetById(int id);
     void Add(Cita cita);
     List<CitaViewModel> ObtenerPorPaciente(int pacienteId);
+    List<CitaViewModel> ObtenerPorMedico(int medicoId);
 }

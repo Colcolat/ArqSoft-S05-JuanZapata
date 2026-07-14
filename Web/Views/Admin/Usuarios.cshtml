@@ -1,0 +1,45 @@
+@model List<(string Id, string Email, string Rol)>
+@{
+    ViewData["Title"] = "Gestión de Usuarios";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Gestión de Usuarios</h2>
+    <table class="table table-striped align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Email</th>
+                <th>Rol actual</th>
+                <th>Cambiar rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in Model)
+            {
+                <tr>
+                    <td>@usuario.Email</td>
+                    <td><span class="badge bg-secondary">@usuario.Rol</span></td>
+                    <td>
+                        <form asp-controller="Admin" asp-action="AsignarRol" method="post" class="d-flex gap-2">
+                            <input type="hidden" name="userId" value="@usuario.Id"/>
+                            <select name="nuevoRol" class="form-select form-select-sm" style="width:auto">
+                                @foreach (var rol in (string[])ViewBag.Roles)
+                                {
+                                    if (rol == usuario.Rol)
+                                    {
+                                        <option value="@rol" selected>@rol</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@rol">@rol</option>
+                                    }
+                                }
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
