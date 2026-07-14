@@ -37,6 +37,7 @@
                         <option value="@p.Id">@p.Nombre @p.Apellido</option>
                     }
                 </select>
+                <span asp-validation-for="PacienteId" class="text-danger small"></span>
             }
         </div>
 
@@ -49,11 +50,13 @@
                     <option value="@m.Id">@m.Nombre — @m.Especialidad</option>
                 }
             </select>
+            <span asp-validation-for="MedicoId" class="text-danger small"></span>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Fecha</label>
-            <input asp-for="Fecha" type="date" class="form-control" />
+            <input asp-for="Fecha" type="date" class="form-control" required />
+            <span asp-validation-for="Fecha" class="text-danger small"></span>
         </div>
 
         <div class="mb-3">
@@ -80,7 +83,8 @@
 
         <div class="mb-3">
             <label class="form-label">Motivo</label>
-            <input asp-for="Motivo" class="form-control" placeholder="Ej. Consulta general" />
+            <input asp-for="Motivo" class="form-control" placeholder="Ej. Consulta general" required />
+            <span asp-validation-for="Motivo" class="text-danger small"></span>
         </div>
 
         @if (User.IsInRole("Admin"))
@@ -105,3 +109,7 @@
 
     </form>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

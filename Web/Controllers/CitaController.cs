@@ -83,6 +83,21 @@ public class CitaController : Controller
             cita.Estado = "Pendiente";
         }
 
+        if (!ModelState.IsValid)
+        {
+            ViewBag.Medicos = _medicoService.GetAll();
+            if (User.IsInRole("Paciente"))
+            {
+                var email = User.FindFirstValue(ClaimTypes.Email) ?? "";
+                ViewBag.PacienteFijo = _pacienteService.GetAll().FirstOrDefault(p => p.Email == email);
+            }
+            else
+            {
+                ViewBag.Pacientes = _pacienteService.GetAll();
+            }
+            return View(cita);
+        }
+
         _citaService.Add(cita);
         return RedirectToAction("Cita");
     }
