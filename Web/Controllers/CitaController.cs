@@ -50,18 +50,36 @@ public class CitaController : Controller
         return View(viewModel);
     }
 
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Paciente")]
     public IActionResult Nuevo()
     {
-        ViewBag.Pacientes = _pacienteService.GetAll();
         ViewBag.Medicos = _medicoService.GetAll();
+
+        if (User.IsInRole("Paciente"))
+        {
+            var email = User.FindFirstValue(ClaimTypes.Email) ?? "";
+            var paciente = _pacienteService.GetAll().FirstOrDefault(p => p.Email == email);
+            ViewBag.PacienteFijo = paciente;
+        }
+        else
+        {
+            ViewBag.Pacientes = _pacienteService.GetAll();
+        }
+
         return View();
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Paciente")]
     public IActionResult Nuevo(Cita cita)
     {
+        if (User.IsInRole("Paciente"))
+        {
+            var email = User.FindFirstValue(ClaimTypes.Email) ?? "";
+            var paciente = _pacienteService.GetAll().FirstOrDefault(p => p.Email == email);
+            if (paciente != null) cita.PacienteId = paciente.Id;
+        }
+
         _citaService.Add(cita);
         return RedirectToAction("Cita");
     }

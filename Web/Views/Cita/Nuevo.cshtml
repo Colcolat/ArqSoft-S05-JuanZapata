@@ -3,8 +3,9 @@
 @{
     ViewData["Title"] = "Nueva Cita";
     Layout = "_Layout";
-    var pacientes = ViewBag.Pacientes as List<CitasApp.Domain.Models.Paciente>;
-    var medicos   = ViewBag.Medicos   as List<CitasApp.Domain.Models.Medico>;
+    var pacientes    = ViewBag.Pacientes as List<CitasApp.Domain.Models.Paciente>;
+    var medicos      = ViewBag.Medicos   as List<CitasApp.Domain.Models.Medico>;
+    var pacienteFijo = ViewBag.PacienteFijo as CitasApp.Domain.Models.Paciente;
 }
 
 <div class="page-header page-header--purple">
@@ -22,13 +23,21 @@
 
         <div class="mb-3">
             <label class="form-label">Paciente</label>
-            <select asp-for="PacienteId" class="form-select">
-                <option value="">-- Selecciona un paciente --</option>
-                @foreach (var p in pacientes)
-                {
-                    <option value="@p.Id">@p.Nombre @p.Apellido</option>
-                }
-            </select>
+            @if (pacienteFijo != null)
+            {
+                <input type="hidden" asp-for="PacienteId" value="@pacienteFijo.Id" />
+                <input class="form-control" value="@pacienteFijo.Nombre @pacienteFijo.Apellido" disabled />
+            }
+            else
+            {
+                <select asp-for="PacienteId" class="form-select">
+                    <option value="">-- Selecciona un paciente --</option>
+                    @foreach (var p in pacientes!)
+                    {
+                        <option value="@p.Id">@p.Nombre @p.Apellido</option>
+                    }
+                </select>
+            }
         </div>
 
         <div class="mb-3">
