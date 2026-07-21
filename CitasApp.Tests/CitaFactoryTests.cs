@@ -17,8 +17,8 @@ public class CitaFactoryTests
         // Act
         var cita = _factory.Construir(pacienteId: 1, medicoId: 2, fecha: fecha, hora: hora, motivo: "Consulta");
 
-        // Assert — fallo intencional para demostrar pipeline en rojo
-        Assert.Equal("Confirmada", cita.Estado);
+        // Assert
+        Assert.Equal("Pendiente", cita.Estado);
     }
 
     [Fact]
